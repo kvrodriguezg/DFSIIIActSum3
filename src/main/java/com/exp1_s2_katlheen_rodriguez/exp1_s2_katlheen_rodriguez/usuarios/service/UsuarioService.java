@@ -2,8 +2,8 @@ package com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.servi
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.exception.BadRequestException;
-import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.exception.ResourceNotFoundException;
+import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.exception.BadRequestException;
+import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.exception.ResourceNotFoundException;
 import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.model.Usuario;
 import com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.repository.UsuarioRepository;
 import java.time.LocalDateTime;
@@ -44,14 +44,12 @@ public class UsuarioService {
     }
 
     //Obtener usuario mediante id
-    @SuppressWarnings("null")
     public Optional<Usuario> obtenerUsuarioPorId(Long id) {
         log.info("Buscando usuario con id {}", id);
         return usuarioRepository.findById(id);
     }
 
     //Obtener usuario mediante con excepción
-    @SuppressWarnings("null")
     private Usuario obtenerPorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado con id: " + id));
@@ -82,7 +80,6 @@ public class UsuarioService {
     }
 
     //Eliminar usuario
-    @SuppressWarnings("null")
     public void eliminar(Long id) {
         log.info("Eliminando usuario con id {}", id);
         Usuario existente = obtenerPorId(id);

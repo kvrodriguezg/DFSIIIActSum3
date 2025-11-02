@@ -1,4 +1,4 @@
-package com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.usuarios.exception;
+package com.exp1_s2_katlheen_rodriguez.exp1_s2_katlheen_rodriguez.exception;
 import java.time.LocalDateTime;
 
 //Excepción con detalles del error
